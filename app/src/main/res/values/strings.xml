@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InmobiliariaContentProvider</string>
+    <string name="fotos">Fotos</string>
+    <string name="action_settings">Settings</string>
+    <string name="inmobiliaria">Inmobiliaria IZV</string>
+    <string name="title_activity_secundaria">Secundaria</string>
+    <string name="aniadir">Añadir</string>
+    <string name="aniadirfotos">Añadir Fotos</string>
+    <string name="title_activity_agregar">Gestion Inmuebles</string>
+    <string name="agregarInm">Añadir Inmueble</string>
+    <string name="editarInm">Editar Inmueble</string>
+    <string name="localidad">Localidad</string>
+    <string name="direccion">Direccion</string>
+    <string name="tipo">Tipo</string>
+    <string name="precio">Precio</string>
+    <string name="long_editar">Editar</string>
+    <string name="long_borrar">Borrar</string>
+    <string name="no_hay_imagenes">No hay imagenes</string>
+    <string name="foto_inmueble">Añadir foto al Inmueble</string>
+    <string name="abrir_donde">¿Desde donde quiere abrir la foto</string>
+    <string name="galeria">Galeria</string>
+    <string name="camara">Camara</string>
+    <string name="insertado">Inmueble insertado</string>
+    <string name="edicion">Edicion Completada</string>
+
+</resources>
