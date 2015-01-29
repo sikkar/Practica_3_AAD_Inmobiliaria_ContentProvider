@@ -1,21 +1,27 @@
 package com.izv.angel.inmobiliariacontentprovider;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -79,6 +85,8 @@ public class Principal extends Activity implements LoaderManager.LoaderCallbacks
             }
         });
         registerForContextMenu(lv);
+        SharedPreferences pc;
+        pc = getPreferences(Context.MODE_PRIVATE);
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -102,9 +110,44 @@ public class Principal extends Activity implements LoaderManager.LoaderCallbacks
             i.setType("agregar");
             startActivityForResult(i,ACTIVIDADAGREGAR);
             return true;
+        }else{
+            if(id== R.id.action_user){
+                setuser();
+                return true;
+            }
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setuser(){
+        final SharedPreferences pc;
+        final String user;
+        pc = getPreferences(Context.MODE_PRIVATE);
+        String r = pc.getString("usuario", "ninguno");
+        if(r.equals("ninguno")){
+            user="";
+        }else{
+            user = r;
+        }
+        AlertDialog.Builder dialog= new AlertDialog.Builder(this);
+        dialog.setTitle("Usuario:");
+        LayoutInflater inflater= LayoutInflater.from(this);
+        final View vista = inflater.inflate(R.layout.dialogo_usuario, null);
+        dialog.setView(vista);
+        final EditText et1;
+        et1=(EditText)vista.findViewById(R.id.etUser);
+        et1.setText(user);
+        dialog.setPositiveButton("Aceptar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        SharedPreferences.Editor ed = pc.edit();
+                        ed.putString("usuario", et1.getText().toString());
+                        ed.commit();
+                    }
+                });
+        dialog.setNegativeButton("Cancelar",null);
+        dialog.show();
     }
 
     @Override

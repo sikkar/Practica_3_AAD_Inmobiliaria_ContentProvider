@@ -4,4 +4,7 @@
         android:title="@string/aniadir"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/action_user"
+        android:title="@string/user"
+        android:orderInCategory="100"/>
 </menu>
