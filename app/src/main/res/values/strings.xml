@@ -26,5 +26,6 @@
     <string name="edicion">Edicion Completada</string>
     <string name="user">Usuario</string>
     <string name="intuser">Introduce tu nombre de usuario:</string>
+    <string name="sube">Subir Inmuebles</string>
 
 </resources>
