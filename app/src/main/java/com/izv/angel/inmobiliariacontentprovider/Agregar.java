@@ -5,9 +5,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +17,13 @@ public class Agregar extends Activity {
 
     private EditText etDir,etLoc,etTip,etPrec;
     private Button bt1;
-    private Adaptador ad;
-    private int posicion;
     private int id;
+
+    /*////////////////////////////////////////////////////////////////////*/
+    /*                                                                    */
+    /*                Metodos ON                                         */
+    /*                                                                    */
+    /*////////////////////////////////////////////////////////////////////*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,12 @@ public class Agregar extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /*////////////////////////////////////////////////////////////////////*/
+    /*                                                                    */
+    /*                Añadir y editar                                     */
+    /*                                                                    */
+    /*////////////////////////////////////////////////////////////////////*/
 
     public void aniadir (View view){
         Intent i=getIntent();

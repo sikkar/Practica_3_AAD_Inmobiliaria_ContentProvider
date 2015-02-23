@@ -88,7 +88,7 @@ public class ProveedorInmueble extends ContentProvider {
                 break;
             default: throw new IllegalArgumentException("URI " + uri);
         }
-        cuenta = db.update(Contrato.TablaInmueble.TABLA, valores, condicion,parametros);
+        cuenta = db.update(Contrato.TablaInmueble.TABLA, valores, condicion, parametros);
         getContext().getContentResolver().notifyChange(uri, null);
         return cuenta;
     }

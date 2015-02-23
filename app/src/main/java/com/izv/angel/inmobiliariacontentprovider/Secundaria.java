@@ -12,10 +12,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -42,6 +41,12 @@ public class Secundaria extends Activity implements LoaderManager.LoaderCallback
     private AdaptadorFotos adf;
     private long idInm;
     private ListView lv;
+
+    /*////////////////////////////////////////////////////////////////////*/
+    /*                                                                    */
+    /*                Metodos ON                                          */
+    /*                                                                    */
+    /*////////////////////////////////////////////////////////////////////*/
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -120,6 +125,12 @@ public class Secundaria extends Activity implements LoaderManager.LoaderCallback
         return super.onOptionsItemSelected(item);
     }
 
+    /*////////////////////////////////////////////////////////////////////*/
+    /*                                                                    */
+    /*               CursorLoader Para fotos                              */
+    /*                                                                    */
+    /*////////////////////////////////////////////////////////////////////*/
+
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Uri uri = Contrato.TablaFotos.CONTENT_URI;
@@ -138,6 +149,12 @@ public class Secundaria extends Activity implements LoaderManager.LoaderCallback
     public void onLoaderReset(Loader<Cursor> loader) {
         adf.swapCursor(null);
     }
+
+     /*////////////////////////////////////////////////////////////////////*/
+    /*                                                                    */
+    /*               Dialogo seleccion origen fotos                       */
+    /*                                                                    */
+    /*////////////////////////////////////////////////////////////////////*/
 
     private void abrirDialogo() {
         AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this);
